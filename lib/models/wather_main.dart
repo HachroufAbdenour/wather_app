@@ -24,7 +24,7 @@ factory MainWather.fromJson(Map<String, dynamic> json) {
   print(json);
   final main = json['main']; // Access the 'main' object
   return MainWather(
-    temperature: (main['temp'] ?? 0.0).toDouble(),
+     temperature: (main['temp'] ?? 0.0).toDouble(),
     feelsLike: (main['feels_like'] ?? 0.0).toDouble(),
     tempMin: (main['temp_min'] ?? 0.0).toDouble(),
     tempMax: (main['temp_max'] ?? 0.0).toDouble(),

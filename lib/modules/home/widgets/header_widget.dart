@@ -2,38 +2,50 @@
 import 'package:flutter/material.dart';
 
 class HeaderWidget extends StatelessWidget {
-  final String? cityName;
+  final String cityName;
   final String formattedDateTime;
+  final VoidCallback onPressedRefresh;
 
   const HeaderWidget({
     required this.cityName,
     required this.formattedDateTime,
+    required this.onPressedRefresh,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            'City: $cityName',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Colors.black,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '$cityName',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(height: 5),
+              Text(
+                formattedDateTime,
+                style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 16,
+                ),
+              ),
+            
+          
+              ],
           ),
-          SizedBox(height: 5),
-          Text(
-            formattedDateTime,
-            style: TextStyle(
-              fontWeight: FontWeight.normal,
-              fontSize: 16,
-            ),
-          ),
-        ],
+          TextButton(
+                onPressed: onPressedRefresh,
+                child: Icon(Icons.refresh),
+              ), ],
       ),
     );
   }

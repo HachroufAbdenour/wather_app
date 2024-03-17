@@ -26,7 +26,7 @@ final WeatherRepository _weatherService = WeatherRepository();
 
   var wather = Wather(
     timezone: 0,
-    mainWather: MainWather(temperature: 0.0, feelsLike: 0.0, tempMin: 0.0, tempMax:0.0, pressure: 0, humidity: 0, seaLevel: 0, groundLevel: 0),
+    mainWather: MainWather(temperature: 0, feelsLike: 0.0, tempMin: 0.0, tempMax:0.0, pressure: 0, humidity: 0, seaLevel: 0, groundLevel: 0),
     cityName: '',
     weatherDescription: WeatherDescription(description: '',main: '',icon: ''),
      wind: Wind(speed: 0.0),
@@ -59,7 +59,7 @@ Future<void> fetchWeatherForCurrentLocation() async {
         _lattitude.value = position.latitude;
       _longitude.value = position.longitude;
 
-      await fetchWeather(position.latitude, position.longitude);
+      await fetchWeather(  _lattitude.value, _longitude.value );
     } else {
       // Handle case when location cannot be retrieved
       print('Unable to fetch current location');
@@ -118,11 +118,18 @@ Future<bool>  handleLocationPermission() async {
           if (hasPermission) {
             fetchWeatherForCurrentLocation();
           }
-          
+
            _isLoading.value = false;
     
     
         super.onInit();
+  }
+
+  
+  Future<void> refreshData() async {
+    // Implement your logic to refresh the weather data
+    // For example, you can call fetchWeatherForCurrentLocation() again
+    await fetchWeatherForCurrentLocation();
   }
    
 
