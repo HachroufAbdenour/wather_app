@@ -1,5 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:weatherapp_starter_project/models/wather_clouds.dart';
 import 'package:weatherapp_starter_project/models/wather_main.dart';
 import 'package:weatherapp_starter_project/models/wather_sys.dart';
@@ -10,7 +11,19 @@ import '../../services/remote/wather_repository.dart';
 
 class HomeController extends GetxController {
 
-  final WeatherRepository _weatherService = WeatherRepository();
+final  RxBool _isLoading=true.obs;
+final  RxDouble _lattitude=0.0.obs;
+final  RxDouble _longitude=0.0.obs;
+
+
+RxBool checkLoading()=>_isLoading;
+RxDouble checkLatitude()=>_lattitude;
+RxDouble checklongitude()=>_longitude;
+
+
+final WeatherRepository _weatherService = WeatherRepository();
+
+
   var wather = Wather(
     timezone: 0,
     mainWather: MainWather(temperature: 0.0, feelsLike: 0.0, tempMin: 0.0, tempMax:0.0, pressure: 0, humidity: 0, seaLevel: 0, groundLevel: 0),
@@ -20,7 +33,17 @@ class HomeController extends GetxController {
       cloudiness: Cloudiness(percentage: 0),
   sysData: SysData(country: '', sunrise: DateTime.now(), sunset: DateTime.now(),)
   ).obs;
-  
+
+
+String getFormattedDateTime() {
+    int timezoneOffsetSeconds = wather.value.timezone;
+    DateTime currentTime = DateTime.now();
+    DateTime adjustedTime = currentTime.add(Duration(seconds: timezoneOffsetSeconds));
+    String formattedDateTime = DateFormat('EEEE, MMMM d, y - hh:mm a').format(adjustedTime);
+    return formattedDateTime;
+  }
+
+
   Future<void> fetchWeather(double latitude, double longitude) async {
     try {
       var fetchedWeather = await _weatherService.getWeather(latitude, longitude);
@@ -33,6 +56,9 @@ class HomeController extends GetxController {
 Future<void> fetchWeatherForCurrentLocation() async {
     Position? position = await _getCurrentLocation();
     if (position != null) {
+        _lattitude.value = position.latitude;
+      _longitude.value = position.longitude;
+
       await fetchWeather(position.latitude, position.longitude);
     } else {
       // Handle case when location cannot be retrieved
@@ -52,7 +78,7 @@ Future<void> fetchWeatherForCurrentLocation() async {
    }
 
 
-Future<bool> handleLocationPermission() async {
+Future<bool>  handleLocationPermission() async {
     bool serviceEnabled;
     LocationPermission permission;  
     
@@ -87,10 +113,13 @@ Future<bool> handleLocationPermission() async {
 
   @override
   Future<void> onInit() async {
+    _isLoading.value =true;
      bool hasPermission = await handleLocationPermission();
           if (hasPermission) {
             fetchWeatherForCurrentLocation();
           }
+          
+           _isLoading.value = false;
     
     
         super.onInit();
