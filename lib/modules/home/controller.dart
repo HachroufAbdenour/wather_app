@@ -43,6 +43,17 @@ String getFormattedDateTime() {
     return formattedDateTime;
   }
 
+String formatTime(int? millisecondsSinceEpoch) {
+  if (millisecondsSinceEpoch == null) return ''; // Handle null value
+
+  DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch * 1000, isUtc: true);
+  return DateFormat('h:mm a').format(dateTime.toLocal());
+}
+
+
+
+
+
 
   Future<void> fetchWeather(double latitude, double longitude) async {
     try {

@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:weatherapp_starter_project/core/values/constants.dart';
 import 'package:weatherapp_starter_project/models/wather.dart';
-
+import 'package:intl/intl.dart';
 import '../controller.dart';
 import 'custom_icon_text_widget.dart';
 
@@ -76,12 +76,13 @@ Widget currentWatherDetails(){
       children: [
        IconWithText(
     iconAssetPath: "assets/icons/windspeed.png",
-    text: "${watherController.wather.value.wind?.speed.toStringAsFixed(1)} km/h",
+    text: "${watherController.wather.value.wind?.speed} %",
     hight: 60,
     widht: 60,
     ),
      IconWithText(
     iconAssetPath: "assets/icons/clouds.png",
+    
     text: "${watherController.wather.value.cloudiness?.percentage} %",
     hight: 60,
     widht: 60,
@@ -130,15 +131,13 @@ Widget sunchyWidget(){
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
            IconWithText(
-        iconAssetPath: "assets/icons/windspeed.png",
-        text: "${watherController.wather.value.wind?.speed.toStringAsFixed(1)} km/h",
-        hight: 80,
+    iconAssetPath: "assets/icons/sunrisee.png",
+ text: watherController.formatTime(_convertToEpochMilliseconds(watherController.wather.value.sysData?.sunrise)),        hight: 80,
         widht: 80,
         ),
          IconWithText(
-        iconAssetPath: "assets/icons/clouds.png",
-        text: "${watherController.wather.value.cloudiness?.percentage} %",
-        hight: 80,
+    iconAssetPath: "assets/icons/sunsett.png",
+ text: watherController.formatTime(_convertToEpochMilliseconds(watherController.wather.value.sysData?.sunset)),        hight: 80,
         widht: 80,
         ),
        
@@ -150,5 +149,10 @@ Widget sunchyWidget(){
 }
 
 
-
+int? _convertToEpochMilliseconds(DateTime? dateTime) {
+  if (dateTime != null) {
+    return dateTime.millisecondsSinceEpoch;
+  }
+  return null;
+}
   }
