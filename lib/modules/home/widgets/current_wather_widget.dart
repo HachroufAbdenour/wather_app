@@ -22,7 +22,14 @@ temprateurAreaWidget(),
 //wather details
 currentWatherDetails(),
 //sunrise sunset
-sunchyWidget()
+sunchyWidget(),
+//draw humidity circle 
+Text("${watherController.wather.value.mainWather?.humidity}°",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.w400)) ,
+
+buildHumidityIndicator(watherController.wather.value.mainWather?.humidity?.toDouble() ?? 0.0),
+
+// build widget 3 buttoun 
+ widgetinfo()
 
       ],
     ); 
@@ -142,6 +149,86 @@ Widget sunchyWidget(){
         ),
        
           ],
+        ),
+      ),
+    ),
+  );
+}
+
+Widget widgetinfo(){
+
+  return Padding(
+    padding: const EdgeInsets.all(12.0),
+    child: Container(
+      height: 50,
+      
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 218, 234, 241),
+        borderRadius: BorderRadius.circular(20),
+      ),
+
+     
+       child:      Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+      Text("Feels Like:${watherController.wather.value.mainWather?.feelsLike}C°",style: TextStyle(color: Colors.black,fontSize: 10,fontWeight: FontWeight.bold),)    ,    
+      Text("Temp max:${watherController.wather.value.mainWather?.tempMax}C°",style: TextStyle(color: Colors.black,fontSize: 10,fontWeight: FontWeight.bold),) ,       
+
+      Text("Temp min:${watherController.wather.value.mainWather?.tempMin}C°",style: TextStyle(color: Colors.black,fontSize: 10,fontWeight: FontWeight.bold),)        
+
+
+                      ],
+                       ),
+            
+            
+          
+      
+      
+    ),
+  );
+}
+
+
+Widget buildWeatherText(String label, String? value) {
+  return Text(
+    "$label: ${value ?? '-'}°C",
+    style: TextStyle(
+      color: Colors.black,
+      fontSize: 10,
+      fontWeight: FontWeight.bold,
+    ),
+  );
+}
+  Widget buildHumidityIndicator(double humidity) {
+  double humidityValue = humidity ?? 0.0; // Default value if humidity is null
+
+  // Calculate the size of the circle based on humidity value
+  double circleSize = 10.0 + (humidityValue * 2.0);
+      
+  return Container(
+    width: circleSize,
+    height: circleSize,
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      border: Border.all(color: Colors.grey, width: 2.0),
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.blue.withOpacity(0.5), // Change color based on your preference
+          Colors.blue.withOpacity(0.8),
+          Colors.blue, // Change color based on your preference
+        ],
+      ),
+    ),
+    child: Center(
+      child: Text(
+        "${humidityValue.toStringAsFixed(0)}%",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
         ),
       ),
     ),
