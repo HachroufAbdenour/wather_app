@@ -23,9 +23,9 @@ temprateurAreaWidget(),
 currentWatherDetails(),
 //sunrise sunset
 sunchyWidget(),
-//draw humidity circle 
-Text("${watherController.wather.value.mainWather?.humidity}°",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.w400)) ,
-
+//draw humid,ity circle 
+SizedBox(height: 20,),
+Text("Humidity",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
 buildHumidityIndicator(watherController.wather.value.mainWather?.humidity?.toDouble() ?? 0.0),
 
 // build widget 3 buttoun 

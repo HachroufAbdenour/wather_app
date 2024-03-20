@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Projects\\weather_app\\weather_app\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bs\\values-bs.xml",
+            "outputFile": "D:\\Projects\\mobile\\weather_app\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bs\\values-bs.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Abdenour\\.gradle\\caches\\transforms-3\\4ef803ba34d31dcf48df123a27eb5d76\\transformed\\jetified-play-services-basement-17.0.0\\res\\values-bs\\values.xml",
