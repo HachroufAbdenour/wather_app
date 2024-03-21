@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'modules/home2/view.dart';
+import 'modules/home1/view.dart';
 
 
 

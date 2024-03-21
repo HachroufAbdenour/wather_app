@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'widgets/icon_button_widget.dart';
 import 'widgets/wather_forecast_item.dart';
 import 'widgets/wather_info_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,29 +16,8 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButtonWidget(
-                    iconPath: "assets/icons/menu_bar.png",
-                    onPressed: () {
-                      // Add functionality for menu bar button
-                    },
-                  ),
-                  Text(
-                    "7days",
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                  IconButtonWidget(
-                    iconPath: "assets/icons/vertical-dots.png",
-                    onPressed: () {
-                      // Add functionality for vertical dots button
-                    },
-                  ),
-                ],
-              ),
-             
+              _buildCustomAppBar(),
+              
               SizedBox(height: 12),
 
               Container(
@@ -61,6 +41,48 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+
+
+
+
+Widget _buildCustomAppBar() {
+  return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButtonWidget(
+                    iconPath: "assets/icons/back.png",
+                    onPressed: () {
+Get.back();                      // Add functionality for menu bar button
+                    },
+                    bColor:  Color(0xff5842A9),
+                  ),
+                  Text(
+                    "7days",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                  IconButtonWidget(
+                    iconPath: "assets/icons/vertical-dots.png",
+                    onPressed: () {
+                      // Add functionality for vertical dots button
+                    },
+                                      bColor:  Color(0xff5842A9),
+
+                  ),
+                  
+                ],
+  );
+}
+
+
+
+
+             
+
+
+
+
 
 Widget _buildWeatherForecast(){
 return const Column(
