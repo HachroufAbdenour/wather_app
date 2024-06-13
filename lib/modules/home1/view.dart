@@ -160,10 +160,9 @@ Widget _buildWeatherForecast() {
                   fontWeight: FontWeight.bold)),
           Stack(children: [
             Padding(
-              padding: EdgeInsets.only(top: 70, left: 60),
+              padding: EdgeInsets.only(top: 65, left: 50),
               child: Image.asset(
-                // ${weatherController.wather.value.weatherDescription?.icon}
-                "assets/weather/09d.png",
+                "assets/weather/${weatherController.wather.value.weatherDescription?.icon}.png",
               
               ),
             ),
