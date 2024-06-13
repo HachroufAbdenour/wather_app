@@ -4,7 +4,7 @@ class WeatherCityWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(3.0),
+      padding: const EdgeInsets.all(1.0),
       child: Container(
         height: 30,
         width: 270,

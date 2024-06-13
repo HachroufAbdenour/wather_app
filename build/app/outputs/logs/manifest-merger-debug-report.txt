@@ -29,8 +29,8 @@ INJECTED from D:\Projects\mobile\weather_app\android\app\src\main\AndroidManifes
 INJECTED from D:\Projects\mobile\weather_app\android\app\src\main\AndroidManifest.xml:1:1-40:12
 INJECTED from D:\Projects\mobile\weather_app\android\app\src\main\AndroidManifest.xml:1:1-40:12
 MERGED from D:\Projects\mobile\weather_app\android\app\src\main\AndroidManifest.xml:1:1-40:12
-MERGED from [:geolocator_android] D:\Projects\mobile\weather_app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:geocoding_android] D:\Projects\mobile\weather_app\build\geocoding_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:geolocator_android] D:\Projects\mobile\weather_app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\Abdenour\.gradle\caches\transforms-3\246793f755122fe14a5802655438cb75\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Abdenour\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\Abdenour\.gradle\caches\transforms-3\5c6674025aa166b1f070d7413d5e9fd9\transformed\jetified-play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
@@ -82,10 +82,10 @@ uses-sdk
 INJECTED from D:\Projects\mobile\weather_app\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Projects\mobile\weather_app\android\app\src\main\AndroidManifest.xml
 INJECTED from D:\Projects\mobile\weather_app\android\app\src\main\AndroidManifest.xml
-MERGED from [:geolocator_android] D:\Projects\mobile\weather_app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:geolocator_android] D:\Projects\mobile\weather_app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:geocoding_android] D:\Projects\mobile\weather_app\build\geocoding_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:geocoding_android] D:\Projects\mobile\weather_app\build\geocoding_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geolocator_android] D:\Projects\mobile\weather_app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geolocator_android] D:\Projects\mobile\weather_app\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\Abdenour\.gradle\caches\transforms-3\246793f755122fe14a5802655438cb75\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\Abdenour\.gradle\caches\transforms-3\246793f755122fe14a5802655438cb75\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Abdenour\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
